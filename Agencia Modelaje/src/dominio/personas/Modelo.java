@@ -4,7 +4,7 @@ package dominio.personas;
 // Hereda de Persona e incluye validación de estatura mínima.
 public class Modelo extends Persona {
 
-    private static final double estaturaMinima = 1.60;
+    private static final double estaturaMinima = 1.50;
 
     private String codigoModelo;
     private double estatura;
