@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+EstructurasNoMoreEnanos.iml
+Estructuras-Workshop01-No-M-s-Enanos1.iml
 
 ### Eclipse ###
 .apt_generated
