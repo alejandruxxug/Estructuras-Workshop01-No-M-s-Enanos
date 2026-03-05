@@ -1,5 +1,7 @@
 package clases.dominio.eventos;
 import java.time.LocalDate;
+import clases.dominio.personas.Fotografo;
+import clases.dominio.personas.Modelo;
 
 // Hereda de Evento e incluye atributos específicos para eventos públicos, como capacidad y patrocinador.
 public class EventoPublico extends Evento {
@@ -36,6 +38,11 @@ public class EventoPublico extends Evento {
     public void setPatrocinador(String patrocinador) {
         this.patrocinador = patrocinador; }
 
+
+    @Override
+    public String tipoEvento() {
+        return "Evento Público";
+    }
 
     @Override
     public String mostrarDetalles() {

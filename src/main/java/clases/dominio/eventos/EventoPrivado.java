@@ -1,5 +1,7 @@
 package clases.dominio.eventos;
 import java.time.LocalDate;
+import clases.dominio.personas.Fotografo;
+import clases.dominio.personas.Modelo;
 
 // Hereda de Evento e incluye atributos específicos para eventos privados.
 public class EventoPrivado extends Evento {
@@ -30,9 +32,15 @@ public class EventoPrivado extends Evento {
         this.cliente = cliente; }
 
     @Override
+    public String tipoEvento() {
+        return "Evento Privado";
+    }
+
+    @Override
     public String mostrarDetalles() {
         return "Evento Privado: " + getNombre() +
                 "\nLugar: " + getLugar() +
                 "\nCliente: " + cliente +
                 "\nNivel de Confidencialidad: " + nivelDeConfidencialidad;
+    }
 }

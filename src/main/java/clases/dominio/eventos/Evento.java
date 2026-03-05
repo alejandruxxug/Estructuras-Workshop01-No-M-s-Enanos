@@ -1,4 +1,7 @@
 package clases.dominio.eventos;
+import clases.dominio.personas.Fotografo;
+import clases.dominio.personas.Modelo;
+
 import java.time.LocalDate;
 
 // Clase abstracta que representa un evento dentro de la agencia.
@@ -55,4 +58,9 @@ public abstract class Evento {
     // Método abstracto que cada subclase debe implementar
     public abstract String mostrarDetalles();
     public abstract String tipoEvento();
+
+    @Override
+    public String toString() {
+        return nombre + " (" + getFecha() + ")";
+    }
 }

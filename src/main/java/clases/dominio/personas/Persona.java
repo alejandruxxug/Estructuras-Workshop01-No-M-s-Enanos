@@ -44,4 +44,9 @@ public abstract class Persona {
 
     // Método abstracto que cada subclase debe implementar
     public abstract String mostrarInformacion();
+
+    @Override
+    public String toString() {
+        return nombre + " — " + getClass().getSimpleName();
+    }
 }

@@ -54,4 +54,9 @@ public class Lugar { // Clase que representa un lugar donde se pueden realizar e
 
     public void setTipoLugar(TipoLugar tipoLugar) {
         this.tipoLugar = tipoLugar; }
+
+    @Override
+    public String toString() {
+        return nombre + ", " + ciudad + " (" + tipoLugar + ")";
+    }
 }
