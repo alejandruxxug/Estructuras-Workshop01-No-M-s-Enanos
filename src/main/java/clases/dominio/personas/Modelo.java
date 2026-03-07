@@ -32,7 +32,7 @@ public class Modelo extends Persona {
     public void setEstatura(double estatura) {
         if (estatura < estaturaMinima) {
             throw new IllegalArgumentException(
-                    "La estatura es inferior a la permitida por la agencia (minimo 1.60m)."
+                    "La estatura es inferior a la permitida por la agencia (minimo 1.50.)."
             );
         }
         this.estatura = estatura;

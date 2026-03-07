@@ -1,0 +1,10 @@
+.root {
+    -fx-background-color: #000000;
+}
+
+logo-startup {
+    ImageView {
+        -fx-width: 60%;
+        -perserve-ratio: true;
+    }
+}
