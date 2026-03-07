@@ -2,7 +2,9 @@ package clases.dominio.eventos;
 import enums.TipoLugar;
 import excepciones.ValorInvalidoException;
 
-public class Lugar { // Clase que representa un lugar donde se pueden realizar eventos.
+import java.io.Serializable;
+
+public class Lugar implements Serializable { // Clase que representa un lugar donde se pueden realizar eventos.
 
     private String nombre;
     private String direccion;

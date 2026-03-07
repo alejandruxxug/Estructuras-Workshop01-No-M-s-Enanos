@@ -9,7 +9,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/main-view.fxml"));
         Scene scene = new Scene(loader.load(), 620, 420);
-        stage.setTitle("Agencia — Eventos");
+        stage.setTitle("NoMasEnanos Managment");
         stage.setScene(scene);
         stage.show();
     }

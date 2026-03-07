@@ -1,18 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
 
-<?import javafx.scene.image.Image?>
-<VBox spacing="10" alignment="CENTER"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="MainController"
-      stylesheets="@../app.css">
+<StackPane fx:id="rootStack" prefWidth="1100" prefHeight="700"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controller.AgenciaController"
+           stylesheets="@../app.css">
 
-    <ImageView styleClass="logo-startup">
-        <image>
-            <Image url="./assets/Enanos.png" />
-        </image>
-    </ImageView>
-</VBox>
+    <BorderPane>
+        <top>
+            <VBox spacing="0">
+                <!-- NAVBAR 1 -->
+                <HBox styleClass="navbar-top" alignment="CENTER_LEFT" spacing="16">
+                    <ImageView fitHeight="40" preserveRatio="true">
+                        <image>
+                            <Image url="@../assets/Enanos.png"/>
+                        </image>
+                    </ImageView>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <TextField fx:id="searchField" styleClass="search-field"
+                               promptText="Buscar..." onAction="#onSearch"/>
+
+                    <Button text="Guardar" styleClass="btn-outline"
+                            onAction="#onGuardar"/>
+                    <Button text="Cargar" styleClass="btn-primary"
+                            onAction="#onCargar"/>
+                </HBox>
+
+                <!-- NAVBAR 2 -->
+                <HBox fx:id="tabBar" styleClass="navbar-tabs" alignment="CENTER_LEFT" spacing="0">
+                    <fx:define>
+                        <ToggleGroup fx:id="navGroup"/>
+                    </fx:define>
+                    <ToggleButton fx:id="tabModelos" text="MODELOS" styleClass="nav-tab"
+                                  toggleGroup="$navGroup" selected="true"
+                                  onAction="#onTabModelos"/>
+                    <ToggleButton fx:id="tabFotografos" text="FOTÓGRAFOS" styleClass="nav-tab"
+                                  toggleGroup="$navGroup"
+                                  onAction="#onTabFotografos"/>
+                    <ToggleButton fx:id="tabEventos" text="EVENTOS" styleClass="nav-tab"
+                                  toggleGroup="$navGroup"
+                                  onAction="#onTabEventos"/>
+                    <ToggleButton fx:id="tabLugares" text="LUGARES" styleClass="nav-tab"
+                                  toggleGroup="$navGroup"
+                                  onAction="#onTabLugares"/>
+                </HBox>
+            </VBox>
+        </top>
+
+        <center>
+            <StackPane fx:id="contentStack" styleClass="content-area">
+                <fx:include fx:id="modelosView" source="ModelosView.fxml"/>
+                <fx:include fx:id="fotosView" source="FotografosView.fxml"/>
+                <fx:include fx:id="eventosView" source="EventosView.fxml"/>
+                <fx:include fx:id="lugaresView" source="LugaresView.fxml"/>
+            </StackPane>
+        </center>
+    </BorderPane>
+
+    <!-- In-app modal overlay -->
+    <VBox fx:id="modalOverlay" styleClass="modal-backdrop"
+          alignment="CENTER" visible="false" managed="false">
+        <VBox styleClass="modal-card" maxWidth="460" alignment="TOP_CENTER">
+            <HBox styleClass="modal-header" alignment="CENTER_LEFT">
+                <Label fx:id="modalIcon" styleClass="modal-icon"/>
+                <Label fx:id="modalTitle" text="" styleClass="modal-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="✕" styleClass="form-close-btn" onAction="#onModalClose"/>
+            </HBox>
+            <VBox styleClass="modal-body">
+                <Label fx:id="modalMessage" text="" styleClass="modal-message" wrapText="true"/>
+            </VBox>
+            <HBox fx:id="modalButtons" styleClass="modal-footer" alignment="CENTER_RIGHT" spacing="12"/>
+        </VBox>
+    </VBox>
+
+    <!-- Splash overlay -->
+    <VBox fx:id="splashOverlay" styleClass="splash-overlay"
+          alignment="CENTER" spacing="12"
+          mouseTransparent="false">
+        <ImageView fitHeight="120" preserveRatio="true">
+            <image>
+                <Image url="@../assets/Enanos.png"/>
+            </image>
+        </ImageView>
+
+        <Label text="No Más Enanos Por Favor" styleClass="splash-title"/>
+
+        <HBox alignment="CENTER" spacing="24">
+            <padding><Insets top="8"/></padding>
+            <Label text="Nombre Apellido 1" styleClass="splash-name"/>
+            <Label text="Nombre Apellido 2" styleClass="splash-name"/>
+            <Label text="Nombre Apellido 3" styleClass="splash-name"/>
+            <Label text="Nombre Apellido 4" styleClass="splash-name"/>
+        </HBox>
+
+        <Label fx:id="splashStatus" text="" styleClass="splash-status">
+            <padding><Insets top="16"/></padding>
+        </Label>
+    </VBox>
+
+</StackPane>

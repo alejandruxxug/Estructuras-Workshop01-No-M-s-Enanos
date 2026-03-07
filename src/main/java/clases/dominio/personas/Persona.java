@@ -1,8 +1,10 @@
 package clases.dominio.personas;
 
+import java.io.Serializable;
+
 // Clase abstracta que representa una persona dentro de la agencia.
 // Sirve como clase base para Modelo y Fotografo.
-public abstract class Persona {
+public abstract class Persona implements Serializable {
 
     // Atributos comunes a todas las personas
     private String nombre;

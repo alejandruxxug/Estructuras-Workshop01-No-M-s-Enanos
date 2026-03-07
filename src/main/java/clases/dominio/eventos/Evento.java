@@ -2,11 +2,12 @@ package clases.dominio.eventos;
 import clases.dominio.personas.Fotografo;
 import clases.dominio.personas.Modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 // Clase abstracta que representa un evento dentro de la agencia.
 // Sirve como clase base para Evento Publico y Evento Privado.
-public abstract class Evento {
+public abstract class Evento implements Serializable {
 
     // Atributos comunes a todos los eventos
     private String nombre;

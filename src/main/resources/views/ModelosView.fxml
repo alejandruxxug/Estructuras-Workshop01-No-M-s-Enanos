@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.ModeloController"
+      VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+
+    <!-- Section Header -->
+    <HBox styleClass="section-header" alignment="CENTER_LEFT">
+        <VBox spacing="2">
+            <Label fx:id="sectionTitle" text="Modelos" styleClass="section-title"/>
+            <Label fx:id="sectionSubtitle" text="0 registrados" styleClass="section-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Registrar Nuevo" styleClass="btn-primary"
+                onAction="#onNuevo"/>
+    </HBox>
+
+    <!-- Filter Bar -->
+    <HBox styleClass="filter-bar" spacing="12">
+        <ComboBox fx:id="filterCategoria" styleClass="combo-box-dark"
+                  promptText="Categoría" prefWidth="180"
+                  onAction="#onFilter"/>
+        <ComboBox fx:id="filterDisponibilidad" styleClass="combo-box-dark"
+                  promptText="Disponibilidad" prefWidth="180"
+                  onAction="#onFilter"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Content: Table + Form overlay -->
+    <StackPane VBox.vgrow="ALWAYS">
+        <VBox styleClass="table-container" VBox.vgrow="ALWAYS">
+            <TableView fx:id="table" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCodigo" text="CÓDIGO" prefWidth="100"/>
+                    <TableColumn fx:id="colNombre" text="NOMBRE" prefWidth="180"/>
+                    <TableColumn fx:id="colEstatura" text="ESTATURA" prefWidth="100"/>
+                    <TableColumn fx:id="colCategoria" text="CATEGORÍA" prefWidth="140"/>
+                    <TableColumn fx:id="colDisponibilidad" text="DISPONIBILIDAD" prefWidth="140"/>
+                    <TableColumn fx:id="colAcciones" text="ACCIONES" prefWidth="220"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Slide-in form panel -->
+        <VBox fx:id="formPanel" styleClass="form-panel" alignment="TOP_RIGHT"
+              visible="false" managed="false"
+              StackPane.alignment="CENTER_RIGHT">
+            <HBox styleClass="form-header" alignment="CENTER_LEFT" spacing="12">
+                <Button text="✕" styleClass="form-close-btn" onAction="#onCancelForm"/>
+                <Label fx:id="formTitle" text="Registrar Modelo" styleClass="form-header-title"/>
+            </HBox>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        styleClass="scroll-pane">
+                <VBox styleClass="form-body" spacing="2">
+                    <Label text="Nombre" styleClass="form-label"/>
+                    <TextField fx:id="fieldNombre" styleClass="text-field-dark"
+                               promptText="Nombre completo"/>
+                    <Label text="Identificación" styleClass="form-label"/>
+                    <TextField fx:id="fieldIdentificacion" styleClass="text-field-dark"
+                               promptText="Número de identificación"/>
+                    <Label text="Contacto" styleClass="form-label"/>
+                    <TextField fx:id="fieldContacto" styleClass="text-field-dark"
+                               promptText="Teléfono o email"/>
+                    <Label text="Estatura (m)" styleClass="form-label"/>
+                    <TextField fx:id="fieldEstatura" styleClass="text-field-dark"
+                               promptText="Ej: 1.75"/>
+                    <Label text="Categoría" styleClass="form-label"/>
+                    <ComboBox fx:id="fieldCategoria" styleClass="combo-box-dark"
+                              prefWidth="380" promptText="Seleccionar categoría"/>
+                    <Label text="Disponibilidad" styleClass="form-label"/>
+                    <ToggleButton fx:id="fieldDisponibilidad" text="No Disponible"
+                                  prefWidth="380"/>
+                </VBox>
+            </ScrollPane>
+            <HBox styleClass="form-footer" spacing="12">
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Cancelar" styleClass="btn-outline" onAction="#onCancelForm"/>
+                <Button text="Guardar" styleClass="btn-primary" onAction="#onSaveForm"/>
+            </HBox>
+        </VBox>
+    </StackPane>
+</VBox>
