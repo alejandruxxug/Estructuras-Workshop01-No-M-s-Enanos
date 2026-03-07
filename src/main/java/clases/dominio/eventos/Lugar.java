@@ -1,5 +1,6 @@
 package clases.dominio.eventos;
 import enums.TipoLugar;
+import excepciones.ValorInvalidoException;
 
 public class Lugar { // Clase que representa un lugar donde se pueden realizar eventos.
 
@@ -43,7 +44,7 @@ public class Lugar { // Clase que representa un lugar donde se pueden realizar e
 
     public void setCapacidadMaxima(int capacidadMaxima) {
         if (capacidadMaxima < 1) { // Validación para asegurar que la capacidad maxima sea valida.
-            throw new IllegalArgumentException(
+            throw new ValorInvalidoException(
                     "La capacidad debe ser un número positivo.");
         }
         this.capacidadMaxima = capacidadMaxima;

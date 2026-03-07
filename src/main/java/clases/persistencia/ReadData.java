@@ -4,7 +4,8 @@ import clases.Agencia;
 
 import  java.io.*;
 
-public class ReadData {
+public class ReadData <T> {
+
 
     public static Agencia read(String archivo) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {

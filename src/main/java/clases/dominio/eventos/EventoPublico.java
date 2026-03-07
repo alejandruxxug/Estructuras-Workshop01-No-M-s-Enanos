@@ -2,6 +2,7 @@ package clases.dominio.eventos;
 import java.time.LocalDate;
 import clases.dominio.personas.Fotografo;
 import clases.dominio.personas.Modelo;
+import excepciones.ValorInvalidoException;
 
 // Hereda de Evento e incluye atributos específicos para eventos públicos, como capacidad y patrocinador.
 public class EventoPublico extends Evento {
@@ -25,7 +26,7 @@ public class EventoPublico extends Evento {
 
     public void setCapacidad(int capacidad) {
         if (capacidad < 1) { // Validación para asegurar que la capacidad sea valida.
-            throw new IllegalArgumentException(
+            throw new ValorInvalidoException(
                     "La capacidad debe ser un número positivo."
             );
         }

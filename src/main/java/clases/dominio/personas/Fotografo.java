@@ -1,5 +1,7 @@
 package clases.dominio.personas;
 
+import excepciones.ValorInvalidoException;
+
 // Clase que representa a un fotografo de la agencia.
 // Hereda de Persona.
 public class Fotografo extends Persona {
@@ -33,7 +35,7 @@ public class Fotografo extends Persona {
 
     public void setAniosExperiencia(int aniosExperiencia) {
         if (aniosExperiencia < 0) {
-            throw new IllegalArgumentException("Los años de experiencia no pueden ser negativos.");
+            throw new ValorInvalidoException("Los años de experiencia no pueden ser negativos.");
         }
         this.aniosExperiencia = aniosExperiencia;
     }

@@ -1,11 +1,13 @@
 package clases.dominio.personas;
 
+import excepciones.EstaturaNoAceptadaException;
+
 // Clase que representa a un modelo afiliado a la agencia.
 // Hereda de Persona e incluye validación de estatura mínima.
 public class Modelo extends Persona {
 
     private static final double estaturaMinima = 1.50;
-
+    private static int counter = 0;
     private String codigoModelo;
     private double estatura;
     private String categoria;
@@ -13,12 +15,12 @@ public class Modelo extends Persona {
 
     // Constructor
     public Modelo(String nombre, String identificacion, String contacto,
-                  String codigoModelo, double estatura,
+                  double estatura,
                   String categoria, boolean disponibilidad) {
 
         super(nombre, identificacion, contacto);
 
-        this.codigoModelo = codigoModelo;
+        this.codigoModelo = "M-" + counter++; // Generamos un código único para cada modelo
         setEstatura(estatura); // usamos setter para validar
         this.categoria = categoria;
         this.disponibilidad = disponibilidad;
@@ -31,8 +33,8 @@ public class Modelo extends Persona {
 
     public void setEstatura(double estatura) {
         if (estatura < estaturaMinima) {
-            throw new IllegalArgumentException(
-                    "La estatura es inferior a la permitida por la agencia (minimo 1.50.)."
+            throw new EstaturaNoAceptadaException(
+                    "La estatura es inferior a la permitida por la agencia (minimo " + estaturaMinima + ".)."
             );
         }
         this.estatura = estatura;
@@ -62,7 +64,6 @@ public class Modelo extends Persona {
         this.disponibilidad = disponibilidad;
     }
 
-    // Implementación del método abstracto
     @Override
     public String mostrarInformacion() {
         return "Modelo: " + getNombre() +
