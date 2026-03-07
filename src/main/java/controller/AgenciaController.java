@@ -291,6 +291,18 @@ public class AgenciaController {
         SaveData.save(SAVE_PATH, instance.agencia);
     }
 
+    public static void reloadData() {
+        Agencia loaded = ReadData.read(SAVE_PATH);
+        if (loaded != null) {
+            instance.agencia = loaded;
+            instance.passAgencia();
+            refreshAll();
+            showInfo("Recargado", "Datos recargados desde el archivo correctamente.");
+        } else {
+            showError("Error al recargar", "No se encontró un archivo de datos guardado.");
+        }
+    }
+
     public static void refreshAll() {
         instance.modelosViewController.refreshTable();
         instance.fotosViewController.refreshTable();

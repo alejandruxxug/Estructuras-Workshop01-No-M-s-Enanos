@@ -141,6 +141,11 @@ public class FotografoController {
     }
 
     @FXML
+    private void onReload() {
+        AgenciaController.reloadData();
+    }
+
+    @FXML
     private void onNuevo() {
         editingFotografo = null;
         formTitle.setText("Registrar Fotógrafo");

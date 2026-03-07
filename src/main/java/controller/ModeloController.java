@@ -174,6 +174,11 @@ public class ModeloController {
     }
 
     @FXML
+    private void onReload() {
+        AgenciaController.reloadData();
+    }
+
+    @FXML
     private void onNuevo() {
         editingModelo = null;
         formTitle.setText("Registrar Modelo");

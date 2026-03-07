@@ -31,6 +31,7 @@
 
     <!-- Filter Bar -->
     <HBox styleClass="filter-bar" spacing="12">
+        <Button text="⟳" styleClass="btn-reload" onAction="#onReload"/>
         <ComboBox fx:id="filterTipoLugar" styleClass="combo-box-dark"
                   promptText="Tipo de Lugar" prefWidth="200"
                   onAction="#onFilter"/>

@@ -64,6 +64,32 @@
     -fx-border-color: transparent transparent #FF9000 transparent;
 }
 
+/* ── Reload button ── */
+.btn-reload {
+    -fx-background-color: #1E1E1E;
+    -fx-text-fill: #999999;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-background-radius: 6;
+    -fx-border-color: #2A2A2A;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-pref-width: 36;
+    -fx-pref-height: 36;
+    -fx-padding: 0;
+}
+
+.btn-reload:hover {
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: #FF9000;
+    -fx-border-color: #FF9000;
+}
+
+.btn-reload:pressed {
+    -fx-background-color: #FF9000;
+    -fx-text-fill: #000000;
+}
+
 /* ── Primary button (filled orange) ── */
 .btn-primary {
     -fx-background-color: #FF9000;
@@ -376,6 +402,9 @@
     -fx-max-width: 420;
     -fx-min-width: 420;
     -fx-pref-width: 420;
+    -fx-max-height: 680;
+    -fx-background-radius: 8 0 0 8;
+    -fx-border-radius: 8 0 0 8;
 }
 
 .form-header {
@@ -385,6 +414,7 @@
     -fx-max-height: 50;
     -fx-padding: 0 16 0 16;
     -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 8 0 0 0;
 }
 
 .form-header-title {
@@ -418,6 +448,7 @@
     -fx-border-width: 1 0 0 0;
     -fx-alignment: CENTER_RIGHT;
     -fx-spacing: 12;
+    -fx-background-radius: 0 0 0 8;
 }
 
 .form-body {

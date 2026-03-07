@@ -104,10 +104,10 @@
 
         <HBox alignment="CENTER" spacing="24">
             <padding><Insets top="8"/></padding>
-            <Label text="Nombre Apellido 1" styleClass="splash-name"/>
-            <Label text="Nombre Apellido 2" styleClass="splash-name"/>
-            <Label text="Nombre Apellido 3" styleClass="splash-name"/>
-            <Label text="Nombre Apellido 4" styleClass="splash-name"/>
+            <Label text="Arango Espinosa Samuel" styleClass="splash-name"/>
+            <Label text="Zuluaga Gonzalez Mariana" styleClass="splash-name"/>
+            <Label text="Muñoz Cuartas Miguel Angel" styleClass="splash-name"/>
+            <Label text="Urrego Giraldo Alejandro" styleClass="splash-name"/>
         </HBox>
 
         <Label fx:id="splashStatus" text="" styleClass="splash-status">

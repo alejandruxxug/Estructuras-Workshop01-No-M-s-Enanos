@@ -181,6 +181,11 @@ public class LugarController {
     }
 
     @FXML
+    private void onReload() {
+        AgenciaController.reloadData();
+    }
+
+    @FXML
     private void onNuevo() {
         editingLugar = null;
         formTitle.setText("Registrar Lugar");

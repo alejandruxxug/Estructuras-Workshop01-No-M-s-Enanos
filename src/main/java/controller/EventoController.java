@@ -202,6 +202,11 @@ public class EventoController {
     }
 
     @FXML
+    private void onReload() {
+        AgenciaController.reloadData();
+    }
+
+    @FXML
     private void onNuevo() {
         editingEvento = null;
         formTitle.setText("Registrar Evento");

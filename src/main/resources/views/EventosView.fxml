@@ -35,6 +35,7 @@
 
     <!-- Filter Bar with pill toggles -->
     <HBox styleClass="filter-bar" spacing="12" alignment="CENTER_LEFT">
+        <Button text="⟳" styleClass="btn-reload" onAction="#onReload"/>
         <fx:define>
             <ToggleGroup fx:id="tipoFilterGroup"/>
         </fx:define>
