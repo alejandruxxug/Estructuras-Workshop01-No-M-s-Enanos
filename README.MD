@@ -170,4 +170,8 @@ src/main/resources/
 | **Maven** | Gestión de dependencias y build |
 
 ## Hecho por 
- -
+
+  - Arango Espinosa Samuel
+  - Muñoz Cuartas Miguel Angel
+  - Zuluaga Gonzalez Mariana
+  - Urrego Giraldo Alejandro

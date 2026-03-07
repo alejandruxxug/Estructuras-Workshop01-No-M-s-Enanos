@@ -549,8 +549,10 @@
 }
 
 .date-picker-popup > * > .month-year-pane {
-    -fx-background-color: #1A1A1A;
-    -fx-padding: 6 12 6 12;
+    -fx-background-color: #0A0A0A;
+    -fx-padding: 8 12 8 12;
+    -fx-border-color: transparent transparent #FF9000 transparent;
+    -fx-border-width: 0 0 1 0;
 }
 
 .date-picker-popup > * > .month-year-pane .label {
