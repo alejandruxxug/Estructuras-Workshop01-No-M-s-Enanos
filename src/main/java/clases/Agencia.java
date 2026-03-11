@@ -9,7 +9,6 @@ import clases.dominio.personas.Persona;
 import excepciones.EntidadDuplicadaException;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Agencia implements Serializable {
 
@@ -38,8 +37,12 @@ public class Agencia implements Serializable {
         }
 
         // Si no hay espacio, agrandar el arreglo en 1 y colocar al final
-        personas = Arrays.copyOf(personas, personas.length + 1);
-        personas[personas.length - 1] = modelo;
+        Persona[] newPersonas = new Persona[personas.length + 1];
+        for (int i = 0; i < personas.length; i++) {
+            newPersonas[i] = personas[i];
+        }
+        newPersonas[personas.length] = modelo;
+        personas = newPersonas;
     }
 
     public void registrarFotografo(Fotografo fotografo) {
@@ -57,8 +60,12 @@ public class Agencia implements Serializable {
             }
         }
 
-        personas = Arrays.copyOf(personas, personas.length + 1);
-        personas[personas.length - 1] = fotografo;
+        Persona[] newPersonas = new Persona[personas.length + 1];
+        for (int i = 0; i < personas.length; i++) {
+            newPersonas[i] = personas[i];
+        }
+        newPersonas[personas.length] = fotografo;
+        personas = newPersonas;
     }
 
     public void registrarLugar(Lugar lugar) {
@@ -76,8 +83,12 @@ public class Agencia implements Serializable {
             }
         }
 
-        lugares = Arrays.copyOf(lugares, lugares.length + 1);
-        lugares[lugares.length - 1] = lugar;
+        Lugar[] newLugares = new Lugar[lugares.length + 1];
+        for (int i = 0; i < lugares.length; i++) {
+            newLugares[i] = lugares[i];
+        }
+        newLugares[lugares.length] = lugar;
+        lugares = newLugares;
     }
 
     public void registrarEvento(Evento evento) {
@@ -95,8 +106,12 @@ public class Agencia implements Serializable {
             }
         }
 
-        eventos = Arrays.copyOf(eventos, eventos.length + 1);
-        eventos[eventos.length - 1] = evento;
+        Evento[] newEventos = new Evento[eventos.length + 1];
+        for (int i = 0; i < eventos.length; i++) {
+            newEventos[i] = eventos[i];
+        }
+        newEventos[eventos.length] = evento;
+        eventos = newEventos;
     }
 
     // ======================== ELIMINAR ========================
@@ -214,9 +229,12 @@ public class Agencia implements Serializable {
         }
 
         // Si no hay espacio, agrandar y asignar
-        modelosDelEvento = Arrays.copyOf(modelosDelEvento, modelosDelEvento.length + 1);
-        modelosDelEvento[modelosDelEvento.length - 1] = modelo;
-        evento.setModelos(modelosDelEvento);
+        Modelo[] newModelos = new Modelo[modelosDelEvento.length + 1];
+        for (int i = 0; i < modelosDelEvento.length; i++) {
+            newModelos[i] = modelosDelEvento[i];
+        }
+        newModelos[modelosDelEvento.length] = modelo;
+        evento.setModelos(newModelos);
     }
 
     public void asignarFotografoAEvento(Fotografo fotografo, Evento evento) {
@@ -235,9 +253,12 @@ public class Agencia implements Serializable {
             }
         }
 
-        fotografosDelEvento = Arrays.copyOf(fotografosDelEvento, fotografosDelEvento.length + 1);
-        fotografosDelEvento[fotografosDelEvento.length - 1] = fotografo;
-        evento.setFotografos(fotografosDelEvento);
+        Fotografo[] newFotografos = new Fotografo[fotografosDelEvento.length + 1];
+        for (int i = 0; i < fotografosDelEvento.length; i++) {
+            newFotografos[i] = fotografosDelEvento[i];
+        }
+        newFotografos[fotografosDelEvento.length] = fotografo;
+        evento.setFotografos(newFotografos);
     }
 
     // ======================== GETTERS ========================
